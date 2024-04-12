@@ -85,18 +85,22 @@ class User {
     }
 
     printCart(): void {
-        console.log(`+#############################################+`);
-        console.log(`|                  Receipt                    |`);
-        console.log(`+---------------------------------------------+`);
-        console.log(`| Item                  | Price               |`);
-        console.log(`+---------------------------------------------+`);
+        console.log(`+-------------------------------------------------+`);
+        console.log(`|                     Receipt                     |`);
+        console.log(`+----------------------+--------------------------+`);
+        console.log(`| Item                 | Price per Unit           |`);
+        console.log(`+----------------------+--------------------------+`);
         this._cart.forEach(item => {
-            console.log(`| ${item.name.padEnd(22)} | $${item.price.toFixed(2).padStart(10)} |`);
+            console.log(`| ${item.name.padEnd(20)} | $${item.price.toFixed(2).padStart(10)} |`);
+            console.log(`| Quantity: ${1} x Price: $${item.price.toFixed(2).padStart(10)} = Total: $${(1 * item.price).toFixed(2).padStart(10)} |`);
+            console.log(`+----------------------+--------------------------+`);
         });
-        console.log(`+=============================================+`);
-        console.log(`| Total                 |         $${this.cartTotal().toFixed(2).padStart(10)} |`);
-        console.log(`+#############################################+`);
+        console.log(`+=================================================+`);
+        console.log(`| Total                | $${this.cartTotal().toFixed(2).padStart(20)} |`);
+        console.log(`+-------------------------------------------------+`);
     }
+
+    
 }
 
 class Shop {
@@ -164,6 +168,13 @@ console.table(eriador.items);
 console.table(bilbo.cart);
 
 bilbo.addToCart(eriador.items[0]);
+bilbo.addToCart(eriador.items[1]);
+bilbo.addToCart(eriador.items[2]);
+
+console.log(`#`.repeat(77));
+
+// console.table(bilbo.cart);
+bilbo.printCart();
 
 
 

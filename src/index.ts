@@ -111,21 +111,11 @@ class Shop {
 
     constructor() {
         this._items = [];
-
-        const lembas_bread = new Item(
-            `Lembas Bread`,
-            10,
-            `A few bites of this elven waybread sustain a traveler for days. It’s lightweight, nutritious, and perfect for long journeys.`
+        const lembas_bread = new Item( `Lembas Bread`, 10, `A few bites of this elven waybread sustain a traveler for days. It’s lightweight, nutritious, and perfect for long journeys.`
         );
-        const the_one_ring = new Item(
-            `The One Ring`,
-            100,
-            `Grants the wearer invisibility and has absolutely no foreseen ill effects whatsoever.`
+        const the_one_ring = new Item( `The One Ring`, 100, `Grants the wearer invisibility and has absolutely no foreseen ill effects whatsoever.`
         );
-        const hobbits_pipe = new Item(
-            `Hobbit’s Pipe of Calm`,
-            15,
-            `Relaxing pipe`
+        const hobbits_pipe = new Item( `Hobbit’s Pipe of Calm`, 15, `Relaxing pipe `
         );
 
         this._items.push(lembas_bread, the_one_ring, hobbits_pipe);

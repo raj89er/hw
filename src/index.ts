@@ -170,12 +170,15 @@ console.table(bilbo.cart);
 bilbo.addToCart(eriador.items[0]);
 bilbo.addToCart(eriador.items[1]);
 bilbo.addToCart(eriador.items[2]);
+console.table(bilbo.cart);
 
-console.log(`#`.repeat(77));
+bilbo.addToCart(eriador.items[0]);
+bilbo.addToCart(eriador.items[1]);
+bilbo.addToCart(eriador.items[2]);
+console.table(bilbo.cart);
 
-// console.table(bilbo.cart);
-bilbo.printCart();
-
-
-
+bilbo.removeFromCart(eriador.items[0]);
+bilbo.removeFromCart(eriador.items[1]);
+bilbo.removeFromCart(eriador.items[2]);
+console.table(bilbo.cart);
 

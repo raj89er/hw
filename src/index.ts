@@ -66,7 +66,10 @@ class User {
     }
 
     removeFromCart(item: Item): void {
-        this._cart = this._cart.filter(cartItem => cartItem.id !== item.id);
+        const index = this._cart.findIndex(cartItem => cartItem.id === item.id);
+        if (index !== -1) {
+            this._cart.splice(index, 1); // Remove only one instance of the item
+        }
     }
 
     removeQuantityFromCart(item: Item, quantity: number): void {
@@ -144,10 +147,10 @@ class Shop {
         console.log(`+#############################################+`);
         console.log(`|                    Shop                     |`);
         console.log(`+---------------------------------------------+`);
-        console.log(`| Item                  | Price               |`);
+        console.log(`| Item                  | Price ($)           |`);
         console.log(`+---------------------------------------------+`);
         this._items.forEach(item => {
-            console.log(`| ${item.name.padEnd(22)} | $${item.price.toFixed(2).padStart(10)} |`);
+            console.log(`| ${item.name.padEnd(22)} |         ${item.price.toFixed(2).padStart(10)} |`);
         });
         console.log(`+#############################################+`);
     }
@@ -165,6 +168,8 @@ const eriador = new Shop();
 const bilbo = new User(`Bilbo Baggins`, 77);
 
 console.table(eriador.items);
+eriador.printItems();
+
 console.table(bilbo.cart);
 
 bilbo.addToCart(eriador.items[0]);
@@ -181,4 +186,16 @@ bilbo.removeFromCart(eriador.items[0]);
 bilbo.removeFromCart(eriador.items[1]);
 bilbo.removeFromCart(eriador.items[2]);
 console.table(bilbo.cart);
+
+bilbo.addToCart(eriador.items[0]);
+bilbo.addToCart(eriador.items[0]);
+bilbo.addToCart(eriador.items[1]);
+bilbo.addToCart(eriador.items[1]);
+bilbo.addToCart(eriador.items[2]);
+bilbo.addToCart(eriador.items[2]);
+console.table(bilbo.cart);
+
+bilbo.removeQuantityFromCart(eriador.items[1], 2);
+console.table(bilbo.cart);
+
 

@@ -102,8 +102,6 @@ class User {
         console.log(`| Total                | $${this.cartTotal().toFixed(2).padStart(20)} |`);
         console.log(`+-------------------------------------------------+`);
     }
-
-    
 }
 
 class Shop {
